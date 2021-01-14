@@ -1,0 +1,14 @@
+{
+    "properties": [
+        {
+            "name": "datasource.main.connectionString",
+            "type": "java.lang.String",
+            "description": ""
+        },
+        {
+            "name": "database.main.name",
+            "type": "java.lang.String",
+            "description": ""
+        }
+    ]
+}
