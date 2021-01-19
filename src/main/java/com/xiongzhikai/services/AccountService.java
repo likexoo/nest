@@ -5,7 +5,6 @@ import javax.annotation.PostConstruct;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
-import com.xiongzhikai.nest.models.Customer;
 
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -13,16 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccountService<M> {
+public class AccountService<T> {
 
     @Autowired
     private MongoDatabase mainDatabase;
 
-    private MongoCollection<M> collection;
+    private MongoCollection<T> collection;
 
-    private final Class<M> model;
+    private final Class<T> model;
 
-    public AccountService(Class<M> model) {
+    public AccountService(Class<T> model) {
         if (model.getName() == "Customer") {
             this.model = model;
         } else {
@@ -37,10 +36,10 @@ public class AccountService<M> {
         }
     }
 
-    public M setPassword(ObjectId _id, String oldPassword, String newPassword) {
+    public T setPassword(ObjectId _id, String oldPassword, String newPassword) {
         // 
         Bson filter = Filters.eq("_id", _id);
-        M account = this.collection.find(filter).first();
+        T account = this.collection.find(filter).first();
         // 
         // account.
         //
