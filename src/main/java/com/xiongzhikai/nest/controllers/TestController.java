@@ -1,10 +1,5 @@
 package com.xiongzhikai.nest.controllers;
 
-import com.mongodb.client.MongoClient;
-
-import org.bson.Document;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,13 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("test")
 public class TestController {
 
-    @Autowired
-    public MongoClient mainDatasource;
-
-    @GetMapping("/customer")
-    public Document getAllCustomers() {
-        Document r = this.mainDatasource.getDatabase("nest").getCollection("Customer").find().first();
-        return r;
-    }
+    /**
+     * 你可以利用这个测试控制器去测试任何东西
+     * 这个文件已经被git忽略了
+     * 不要提交这个文件
+     */
 
 }
